@@ -24,7 +24,7 @@
             <option value=<%= user.id %>><%= user.name %></option>
           <% end %>
         </select>
-        <input name="room,[user_ids][]" type="hidden" value=<%= current_user.id%>>
+        <input name="room[user_ids][]" type="hidden" value=<%= current_user.id%>>
         <%#hiddenで非表示に。select同様name=のところでキーに対し値を配列で受け取る。valueでログイン中のユーザーidを指定%>
         <%#inputに対しvalueで自動入力にしている%>
       </div>
