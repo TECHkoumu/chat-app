@@ -16,6 +16,17 @@
         <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
       </div>
       <div class='chat-room-form__field--right'>
+        <select name="room[user_ids][]"> 
+        <%#プルダウン作成。room[user_ids][]はroom[user_ids]をキーとし、値の部分に配列を格納し、paramsで送る%>
+          <option value="">チャットするユーザーを選択してください</option>
+          <%User.where.not(id: current_user.id).each do|user|%>
+          <%#↑ログインユーザーのidを省いて配列取得し要素数分繰り返す%>
+            <option value=<%= user.id %>><%= user.name %></option>
+          <% end %>
+        </select>
+        <input name="room,[user_ids][]" type="hidden" value=<%= current_user.id%>>
+        <%#hiddenで非表示に。select同様name=のところでキーに対し値を配列で受け取る。valueでログイン中のユーザーidを指定%>
+        <%#inputに対しvalueで自動入力にしている%>
       </div>
     </div>
     <div class='chat-room-form__field'>
