@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
   end
   def create
     @room = Room.new(room_params)
-    if @room.save #保存成功はroot_patheヘリダイレクト
+    if @room.save #保存成功はroot_pathヘリダイレクト
       redirect_to root_path
     else
       render :new #失敗の場合は、ルーム作成(rooms/new.html.erb)をrenderで引っ張ってくる
