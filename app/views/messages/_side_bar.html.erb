@@ -4,14 +4,17 @@
   </div>
 
   <div class="create_room">
-    <a href="#">チャットを作成する</a>
+    <%= link_to "チャットを作成する", new_room_path%>
   </div>
 
 </div>
-    <div class="side_bar_rooms">
+<div class="side_bar_rooms">
+  <% current_user.rooms.each do |room|%>
+     <div class="room">
       <div class="room_index">
-        <a href="#">techroom1</a>
-        <a href="#">techroom2</a>
+        <a href="#"><%= room.name%></a>
+        <%#roomテーブルのnameカラム%>
       </div>
-      
     </div>
+  <% end %>
+</div>
