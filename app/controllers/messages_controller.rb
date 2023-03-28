@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @room = Room.find(params[:room_id])
+    @messages = @room.messages.includes(:user)
   end
   def create
     @room = Room.find(params[:room_id])
@@ -11,6 +12,7 @@ class MessagesController < ApplicationController
       redirect_to room_messages_path(@room)
       #@roomで指定したroom_messages_pathへリダイレクト。
     else
+      @messages = @room.messages.includes(:user)
       render :index
     end
   end
