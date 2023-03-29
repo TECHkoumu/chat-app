@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:content).merge(user_id: current_user.id)
+    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
     #messageキー(モデル)探す→contentキーを許可→許可するパラメータにcurrent_user.idも追加
   end
 end
