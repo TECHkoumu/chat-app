@@ -17,5 +17,7 @@
     <%= message.content%>
     <!--messageテーブルのcontentカラムから内容を取得-->
     </div>
+    <%= image_tag message.image.variant(resize: '500x500'), class:'message_image' if message.image.attached? %>
+    <!--messageモデルのimageファイルを画像表示-->
   </div>
 </div>
