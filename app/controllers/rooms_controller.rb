@@ -12,7 +12,11 @@ class RoomsController < ApplicationController
       render :new #失敗の場合は、ルーム作成(rooms/new.html.erb)をrenderで引っ張ってくる
     end
   end
-
+  def destroy
+    room = Room.find(params[:id]) #削除だからビュー表示不要→インスタンス変数でなくて良い
+    room.destroy
+    redirect_to root_path
+  end
   private
   def room_params
     params.require(:room).permit(:name,user_ids:[])
