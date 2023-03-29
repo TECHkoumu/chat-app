@@ -12,8 +12,8 @@
   <% current_user.rooms.each do |room|%>
      <div class="room">
       <div class="room_index">
-        <a href="#"><%= room.name%></a>
-        <%#roomテーブルのnameカラム%>
+        <%= link_to room.name,room_messages_path(room)%>
+        <%# link_to リンクの名前, リンク先のパス パスに引数を指定=紐付け 今回の場合メッセージと紐づくroomのidを持たせている%>
       </div>
     </div>
   <% end %>

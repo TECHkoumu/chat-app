@@ -1,0 +1,21 @@
+<div class="message">
+  <div class="upper_message">
+    <div class="message_user">
+      <!--投稿したユーザー名情報を出力する-->
+      <%= message.user.name%>
+      <!--messageテーブルのuser_idに紐づくユーザー名をuserテーブルの.nameカラムから取得-->
+    </div>
+    <div class="message_date">
+      <!--投稿した時刻を出力する-->
+      <%= l message.created_at%>
+      <!--messageテーブルのcreated_atカラムから時刻習得-->
+    </div>
+  </div>
+  <div class="lower_message">
+    <div class="message_content">
+    <!--投稿したメッセージ内容を記述する -->
+    <%= message.content%>
+    <!--messageテーブルのcontentカラムから内容を取得-->
+    </div>
+  </div>
+</div>
